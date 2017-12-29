@@ -6,7 +6,7 @@ Node-RED Bluemix Starter Application
 This repository is an example Node-RED application that can be deployed into
 Bluemix with only a couple clicks. Try it out for yourself right now by clicking:
 
-[![Deploy to Bluemix](https://bluemix.net/deploy/button.png)](https://bluemix.net/deploy?repository=https://github.com/team-wolfpack/Wolfpack-Demo-Asset/tree/master/Club-Equipment-Manager)
+[![Deploy to Bluemix](https://bluemix.net/deploy/button.png)](https://bluemix.net/deploy?repository=https://github.com/team-wolfpack/Wolfpack-Demo-Asset/tree/master/Club-Equipment-Manager.git)
 
 ### How does this work?
 
