@@ -1,0 +1,11 @@
+applications:
+- path: .
+  memory: 256M
+  instances: 1
+  domain: mybluemix.net
+  name: FCUSA-Equipment-Moitoring
+  host: FCUSA-Equipment-Moitoring
+  disk_quota: 1024M
+  services:
+  - FCUSA-Equipment-Moitoring-iotf-service
+  - FCUSA-Equipment-Moitoring-cloudantNoSQLDB
