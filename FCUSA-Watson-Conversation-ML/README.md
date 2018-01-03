@@ -9,7 +9,7 @@ A predictive chatbot to give personalized fitness class recommendations for memb
 5. Cloudant
 6. Watson Tone Analyzer (optional)
 
-Note: This application is a simple starting point “proof-of-concept” and not viable for production. 
+Note: This application is a simple starting point “proof-of-concept” and not viable for production.
 
 Follow these instructions to get things up and running:
 
@@ -21,7 +21,7 @@ Follow these instructions to get things up and running:
     2. Set up your local development environment
         1. From the “Getting Started” page of the Node-RED starter application, (you should be taken her automatically) follow the instructions under “Customizing your Node-RED instance” in order to install the Cloud Foundry command line interface, download and extract the starter code locally, then deploy back to Bluemix with “cf push”.
     3. After waiting for the app to deploy and start, it will be running at *your-app-name*.mybluemix.net and you can visit it
-3. After your app is up and running (It will take a few minutes. You should see a confirmation of “running” state on the command line), visit *your-app-name*.mybluemix.net/ to get started with the Node red editor. 
+3. After your app is up and running (It will take a few minutes. You should see a confirmation of “running” state on the command line), visit *your-app-name*.mybluemix.net/ to get started with the Node red editor.
 4. Follow the steps in the menu
     1. I recommend securing your editor with a username and passcode, (remember this…it’s important) select Next
     2. You do not need any additional nodes right now, so select Next
@@ -65,13 +65,13 @@ Follow these instructions to get things up and running:
         1. Deployment type = online, give it a name like “Fitness Model Deployment”. Select “Deploy”
     2. Click on the new name of your new deployed model to see details
         1. You can now see the “Scoring end point”. This is the RESTful endpoint you can send an HTTP POST request to in order score your model.
-        2. Copy the scoring endpoint to your clipboard. 
+        2. Copy the scoring endpoint to your clipboard.
 7. Add Watson ML Scoring Endpoint and Credentials to Node-RED
-    1. Go back to your Node-RED “Final Flow”. 
+    1. Go back to your Node-RED “Final Flow”.
         1. Find the node that says “WML - SparkML”, and replace the URL with the “Scoring end point” on your clipboard. This will tell Node-RED where to send the WML requests.
     2. Add Credentials for Watson ML to Node-RED
         1. Go to your Bluemix dashboard - https://console.bluemix.net/dashboard/apps/
-            1. Under services, find the Machine Learning service you created, and click on it. 
+            1. Under services, find the Machine Learning service you created, and click on it.
             2. In the menu on the left, select “Service credentials”
                 1. Select “New credential”, then “Add”
                 2. Select “View credentials” for your new credentials (likely named “Credentials-1”). This will show your Basic Authentication username and password for Watson Machine Learning endpoints, which we need to give to Node-RED.
@@ -92,7 +92,7 @@ Follow these instructions to get things up and running:
     2. Select “Credentials at the top”, wait for Workspace Details and Service Credentials to load
         1. You should see a Workspace ID, Username, and Password on the page
     3. Go back to your Node-RED Final Flow and copy all three of these into the appropriate fields in the “Watson Conversation API” node.
-    
+
 ## Deploy the Node-RED Flow
 
 1. Select "Deploy" in the upper right portion of the screen in order to deploy your Node-RED flow. This will now make this flow callable as a RESTful endpoint at *your-app-name*.mybluemix.net/api/message (the endpoint defined in the HTTP Request node) .
@@ -101,7 +101,7 @@ Follow these instructions to get things up and running:
 
 1. From your Bluemix dashboard, you should be able to find “*your-app-name*-cloudantNoSQLDB” listed under services. This is the Node-RED starter’s NoSQL database that was automatically provisioned. We will all use this as our customer records database to allow our app to pull up customer information. Click on the database, then select “Launch” to open the database dashboard.
 2. Create “customer_info” database.
-    1. From the Cloudant dashboard, select the second button down on the left to get to your Databases. There should just be one right now called nodered. We want to make a new one called “customer_info”. 
+    1. From the Cloudant dashboard, select the second button down on the left to get to your Databases. There should just be one right now called nodered. We want to make a new one called “customer_info”.
     2. Select “Create Database” in the top right of the screen, enter the name of “customer_info”, then “Create”
 3. Add a documents to the database for a customers.
     1. Select “Create Document”, and then copy and paste the JSON from the setting-up-yourself/customer-example.json file. Make sure to paste over anything that is already in the window.
@@ -115,9 +115,9 @@ Follow these instructions to get things up and running:
 
 ## Optional — add in Watson Tone Analyzer
 
-1. The Node-RED final flow has a disconnected portion with a Watson Tone Analyzer API. It is left as an exercise to add this into your flow. You will need to add the Watson Tone Analyzer service from the Bluemix Catalog and get credentials to plug in, similar to what we did with the other services. 
+1. The Node-RED final flow has a disconnected portion with a Watson Tone Analyzer API. It is left as an exercise to add this into your flow. You will need to add the Watson Tone Analyzer service from the Bluemix Catalog and get credentials to plug in, similar to what we did with the other services.
 2. Once you’ve added credentials, to add it into your flow:
-    1. Delete the wire between “Prep Input Message” and “Watson Conversation API” 
+    1. Delete the wire between “Prep Input Message” and “Watson Conversation API”
     2. Add a wire between the output of “Prep Input Message” to the input of the Watson Tone Analyzer node
     3. Add a wire from the SECOND output of “Customer Angry?” to the input of “Watson Conversation API”
 3. And voila! Your customer will be told they’re being routed to a “live agent” if their “anger” score breaches the threshold.

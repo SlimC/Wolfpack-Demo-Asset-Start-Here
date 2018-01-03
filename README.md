@@ -38,3 +38,10 @@ In addition to these asset, you will be required to setup the following in your 
             - Bluemix Cloud/Local CLI tools
 
 Please note that Refinery is not yet included due to its limited functionality in the Beta.  I expect to have it added in the next release, once join and other capabilities are available.  At that point, we can add some additional scenarios that include Catalog, Refinery, and hybrid-cloud data scenarios.
+
+There are two Node-Red-based application provided as part of this demo:
+    1.  Fitness Club Equipment Monitoring:  This application simulates and controls a setup of fitness equipment for a fitness club (treadmills and elipticals, specifically).  It provides updates to the Watson IoT Platform on the status of the devices, as well as reporting on any failures.  It also contains an example website that highlights the use of embedding Cognos dashboards into an app.
+
+    2.  The Watson Conversation App:  Demonstrates an improved customer experience for the Fitness Club's members using Watson Conversation.  This app was originally developed by Sam Ennis and is being re-used for this part of the demo.  I have included the full asset set here for in the event it is needed.
+
+Both apps are already deployed in the Wolfpack Kubernetes cluster.  The "Fitness Club App Deployment" provides details on how this currently deployment can be accessed and used, as well as how they can be re-deployed in another IBM Cloud Cluster or ICP.
