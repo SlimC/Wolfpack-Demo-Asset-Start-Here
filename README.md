@@ -44,5 +44,13 @@ There are two Node-Red-based application provided as part of this demo:
     1.  Fitness Club Equipment Monitoring:  This application simulates and controls a setup of fitness equipment for a fitness club (treadmills and elipticals, specifically).  It provides updates to the Watson IoT Platform on the status of the devices, as well as reporting on any failures.  It also contains an example website that highlights the use of embedding Cognos dashboards into an app.
 
     2.  The Watson Conversation App:  Demonstrates an improved customer experience for the Fitness Club's members using Watson Conversation.  This app was originally developed by Sam Ennis and is being re-used for this part of the demo.  I have included the full asset set here for in the event it is needed.
+    
+While instances of these applications are hosted centrally on our Kubernetes cluster, it is HIGHLY advised that you create your own instances on the cluster with a unique name, ect.  This will enable us to do demos, etc. wihtout interferring with each other. A script will be provided to facilitate this process.  Also, you may want to consider showing this process as part of your demos. 
+    
+    
 
-Both apps are already deployed in the Wolfpack Kubernetes cluster.  The "Fitness Club App Deployment" provides details on how this currently deployment can be accessed and used, as well as how they can be re-deployed in another IBM Cloud Cluster or ICP.
+The following are links to sample instances of the applications in order to get an understand as to how these applications work.  However, for real-world use with partners and customer, you will need to create your own instance as described above.
+
+  - Fitness Club Equipment Simulation Application (node-red) Sample Instance: http://184.172.250.58:32250
+  - Fitness Club Equipment Dashboard Sample Instance: http://184.172.250.58:32250/app
+  - Fitness Club Chat Node-Red Sample Instance: Coming Soon!
