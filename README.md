@@ -11,10 +11,11 @@ An overview of the demo scenario can be viewed in the Wolfpack Demo Asset.pdf fi
 In order to make it easy to get up and running with these assets, a significant portion of the required IBM Cloud services and applications have been setup in advance.  However, if you would like to setup the applications and services from scratch, the assets in the "setup yourself" folder can be used (coming in the next release).
 
 The demo currently consists of the following pre-configured assets:
-    - Two pre-defined containerized Node-Red apps that are deployed in an IBM Cloud hosted Kubernetes cluster.  If you prefer to use your own cluster they can also be deployed to other clusters (including ICP), since they are registered in a Docker Hub repository.
-    - A set of pre-configured service instances in the NAChannels IBM Cloud organization.  These include,
-            - A Kubernetes cluster (wolfpack-cluster)
-            - Watson Conversation service (Conversation-wolfpack)
+- Two pre-defined containerized Node-Red apps that are deployed in an IBM Cloud hosted Kubernetes cluster.  If you prefer to use your own cluster they can also be deployed to other clusters (including ICP), since they are registered in a Docker Hub repository.
+- A set of pre-configured service instances in the NAChannels IBM Cloud organization.  These include,
+
+   - A Kubernetes cluster (wolfpack-cluster)
+   - Watson Conversation service (Conversation-wolfpack)
             - Watson IoT (Internet-of-Things-Platform-Wolkpack)
             - Watson Machine Learning (Machine-Learning-wolfpack)
             - Watson NLU (Natural Language Understanding-wolfpack)
