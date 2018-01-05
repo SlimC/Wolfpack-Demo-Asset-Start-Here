@@ -53,4 +53,5 @@ The following are links to sample instances of the applications in order to get 
 
   - Fitness Club Equipment Simulation Application (node-red) Sample Instance: http://184.172.250.58:32250
   - Fitness Club Equipment Dashboard Sample Instance: http://184.172.250.58:32250/app
-  - Fitness Club Chat Node-Red Sample Instance: Coming Soon!
+  - Fitness Club Chat Node-Red Sample Instance: http://184.172.250.58:31259
+  - Fitness Club Chat Application (node red): http://184.172.250.58:31259/red
