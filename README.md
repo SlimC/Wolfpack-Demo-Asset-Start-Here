@@ -31,27 +31,54 @@ The demo currently consists of the following pre-configured assets:
             - Fitness Club Member Status.csv
             - Fitness Club Class Revenue.csv
         - A streaming analytics workflow
-    - A Cognos dashboard
-
-In addition to these asset, you will be required to setup the following in your own IBM Cloud or local environment, since these cannot be easily shared due to limitations
-
-            - Kubernetes CLI tools
-            - Bluemix Cloud/Local CLI tools
+    - A Cognos dashboard hosting on a Cloud Conseirge server
 
 Please note that Refinery is not yet included due to its limited functionality in the Beta.  I expect to have it added in the next release, once join and other capabilities are available.  At that point, we can add some additional scenarios that include Catalog, Refinery, and hybrid-cloud data scenarios.
 
+Setup Instructions (assuming you are running on a Mac or Linux):
+
+In order to get started using these existing assets, you will be required to setup the following in your own IBM Cloud or local environment, since these cannot be easily shared due to limitations:
+
+1.  Install the IBM Cloud CLI- https://console.bluemix.net/docs/cli/reference/bluemix_cli/get_started.html#getting-started
+
+2.  Install the Kubernetes CLI (kubectl)- https://kubernetes.io/docs/tasks/tools/install-kubectl/
+
+3.  Once the CLIs are install, ensure that they are both in your command line path.
+
+4.  Install the IBM Cloud Container service plugin with the following: 
+
+bx plugin install container-service -r Bluemix
+
 There are two Node-Red-based application provided as part of this demo:
-    1.  Fitness Club Equipment Monitoring:  This application simulates and controls a setup of fitness equipment for a fitness club (treadmills and elipticals, specifically).  It provides updates to the Watson IoT Platform on the status of the devices, as well as reporting on any failures.  It also contains an example website that highlights the use of embedding Cognos dashboards into an app.
+1.  Fitness Club Equipment Monitoring:  This application simulates and controls a setup of fitness equipment for a fitness club (treadmills and elipticals, specifically).  It provides updates to the Watson IoT Platform on the status of the devices, as well as reporting on any failures.  It also contains an example website that highlights the use of embedding Cognos dashboards into an app.
 
-    2.  The Watson Conversation App:  Demonstrates an improved customer experience for the Fitness Club's members using Watson Conversation.  This app was originally developed by Sam Ennis and is being re-used for this part of the demo.  I have included the full asset set here for in the event it is needed.
+2.  The Watson Conversation App:  Demonstrates an improved customer experience for the Fitness Club's members using Watson Conversation.  This app was originally developed by Sam Ennis and is being re-used for this part of the demo.  I have included the full asset set here for in the event it is needed.
     
-While instances of these applications are hosted centrally on our Kubernetes cluster, it is HIGHLY advised that you create your own instances on the cluster with a unique name, ect.  This will enable us to do demos, etc. wihtout interferring with each other. A script will be provided to facilitate this process.  Also, you may want to consider showing this process as part of your demos. 
-    
-    
-
 The following are links to sample instances of the applications in order to get an understand as to how these applications work.  However, for real-world use with partners and customer, you will need to create your own instance as described above.
 
   - Fitness Club Equipment Simulation Application (node-red) Sample Instance: http://184.172.250.58:32250
   - Fitness Club Equipment Dashboard Sample Instance: http://184.172.250.58:32250/app
   - Fitness Club Chat Node-Red Sample Instance: http://184.172.250.58:31259
   - Fitness Club Chat Application (node red): http://184.172.250.58:31259/red
+
+While instances of these applications are hosted centrally on our Kubernetes cluster, it is HIGHLY advised that you create your own instances on the cluster with a unique name, ect.  This will enable us to do demos, etc. wihtout interferring with each other. To automate the process of setting up your instance, the following script has been created.  
+
+app_deploy_script.sh
+
+The script will ask you for a unique name to prefix the instance name of your apps in the cluster (I recommend using your email id minus the @ibm.com).  The script will then create your unique running instances of the applications on the Wolfpack Kubernetes cluster.
+
+A few known issues with the script:
+
+1.  You be asked to enter a one-time passcode for IBM Cloud.  Unfortunately, this is a security feature in the IBM Cloud when we use SSO accounts that we cannot work around for now (if anyone has any ideas on this, please let me know :) ).  However, a url will be listed to obtain this passcode.  Anyone who has used the IBM Cloud command line should be familar with this step.
+
+2.  Its possible that you may get an error because the you need to setup your unique KUBECONFIG environment variable.  Fortunately, one of the commands in the script will provide the right command to manually execute to do this.  The output will look similar to below.  When the script fails, copy and paste the specific command listed and then re-run the script.  In the future, I expect to this piece automated.
+
+export KUBECONFIG=/Users/ibm/.bluemix/plugins/container-service/clusters/wolfpack-cluster/kube-config-hou02-wolfpack-cluster.yml
+
+3.  Its possible that you may get an error requiring you to have "viewer" privledges to the Container Service.  While I have setup these permissions for the entire team, its possible that I may have missed someone.  If you get this error, please let me know and I will fix ASAP.
+
+Once you are done with using your instances, a clean-up script is also provided to remove them from the cluster.
+
+app_cleanup_script.sh
+
+Running the Demo:
